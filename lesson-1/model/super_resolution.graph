@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "1", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "2", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "expand_dims0", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "relu0", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_conv2d_broadcast_add_relu", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[0, 0, 0], [1, 0, 0], [2, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "4", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "expand_dims1", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "relu1", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_conv2d_broadcast_add_relu_1", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[3, 0, 0], [4, 0, 0], [5, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "6", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "expand_dims2", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "relu2", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_conv2d_broadcast_add_relu_2", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[6, 0, 0], [7, 0, 0], [8, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "8", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "expand_dims3", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "broadcast_add3", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_conv2d_broadcast_add", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[9, 0, 0], [10, 0, 0], [11, 0, 0]]
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "reshape1", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_reshape_transpose_reshape", 
+        "num_inputs": "1", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[12, 0, 0]]
+    }
+  ], 
+  "arg_nodes": [0, 1, 2, 4, 5, 7, 8, 10, 11], 
+  "node_row_ptr": [
+    0, 
+    1, 
+    2, 
+    3, 
+    4, 
+    5, 
+    6, 
+    7, 
+    8, 
+    9, 
+    10, 
+    11, 
+    12, 
+    13, 
+    14
+  ], 
+  "heads": [[13, 0, 0]], 
+  "attrs": {
+    "storage_id": ["list_int", [
+        2, 
+        3, 
+        4, 
+        0, 
+        5, 
+        6, 
+        1, 
+        7, 
+        8, 
+        0, 
+        9, 
+        10, 
+        1, 
+        0]], 
+    "shape": ["list_shape", [
+        [1, 1, 224, 224], 
+        [64, 1, 5, 5], 
+        [64, 1, 1], 
+        [1, 64, 224, 224], 
+        [64, 64, 3, 3], 
+        [64, 1, 1], 
+        [1, 64, 224, 224], 
+        [32, 64, 3, 3], 
+        [32, 1, 1], 
+        [1, 32, 224, 224], 
+        [9, 32, 3, 3], 
+        [9, 1, 1], 
+        [1, 9, 224, 224], 
+        [1, 1, 672, 672]]], 
+    "dtype": ["list_int", [
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0]], 
+    "dltype": ["list_str", [
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32"]]
+  }
+}

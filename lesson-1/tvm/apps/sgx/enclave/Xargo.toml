@@ -1,0 +1,13 @@
+[dependencies]
+alloc = {}
+panic_unwind = {}
+panic_abort = {}
+
+[dependencies.std]
+path = "/opt/rust-sgx-sdk/xargo/sgx_tstd"
+features = ["backtrace", "stdio", "untrusted_time"]
+stage = 2
+
+[dependencies.xargo_sgx_rand]
+path = "/opt/rust-sgx-sdk/xargo/sgx_rand"
+stage = 3

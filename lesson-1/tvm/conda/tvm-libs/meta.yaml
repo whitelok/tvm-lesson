@@ -1,0 +1,33 @@
+{% set version = "0.5.dev" %}
+
+package:
+  name: tvm-libs
+  version: {{ version }}
+
+source:
+  path: ../..
+
+build:
+  number: 1
+  string: cuda{{ cuda_version }}_{{ PKG_BUILDNUM }}  # [cuda]
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}  # [linux]
+    - llvmdev ==6.0.0  # [osx]
+  host:
+    # The OS X build will require some manual setup or it will break
+    # See https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html#macos-sdk
+    # It is also ass-backward because of llvm brokeness when mixed with the
+    # conda OS X compiler
+    - {{ compiler('cxx') }}  # [osx]
+    - cmake
+    - llvmdev ==6.0.0  # [linux]
+    - zlib  # [linux]
+  run:
+    - {{ pin_compatible('cudatoolkit', lower_bound=cuda_version, max_pin='x.x') }}  # [cuda]
+
+about:
+  home: https://github.com/dmlc/tvm
+  license: Apache2
+  summary: a low level domain specific language for compiling tensor computation pipelines
