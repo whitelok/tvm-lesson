@@ -1,2 +1,0 @@
-VTA Hardware Design Overview
-============================
